@@ -11,7 +11,7 @@ function scrollToTop() {
 
     button.on('click', (e) => {
         e.preventDefault();
-        $('html').animate({scrollTop: 0}, 1000)
+        $('html').animate({scrollTop: 0}, 100)
     })
 }
 scrollToTop()
