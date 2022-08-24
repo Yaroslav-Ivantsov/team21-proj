@@ -1,1 +1,235 @@
 // Cтили для секции с галереей 
+
+
+
+.gallery {
+       
+        margin-bottom: 0px;
+        @media screen and (min-width:250px) and (max-width:767px) {
+              
+                margin-bottom: 60px;
+            }
+        
+            @media screen and (min-width:768px) and (max-width:1199px) {
+                
+                margin-bottom: 60px;
+        
+            }
+        
+            @media screen and (min-width:1200px) {
+                
+                margin-bottom: 120px;
+            }
+
+        &__conteiner-union {
+            //margin-bottom: 60px;
+            //height: 236px;
+            transform: translate(0%, -20%);
+                ;
+            
+                @media screen and (min-width:250px) and (max-width:767px) {
+                    //height: 136px;
+                    height: 115px;
+                    
+                }
+            
+                @media screen and (min-width:768px) and (max-width:1199px) {
+                    //height: 326px;
+                    height: 270px;
+                   
+            
+                }
+            
+                @media screen and (min-width:1200px) {
+                    width: 1013px;
+                    height: 360px;
+                    //height: 260px;
+                     
+                }
+    
+        }
+       
+        .container {
+            @media screen and  (max-width:1199px) {
+                padding-left: 0;
+                padding-right: 0;
+                
+                }
+            @media screen and (min-width:1200px)  {
+                width: 1013px;
+            }
+        }
+        &__grid {
+            //margin-left: auto;
+           // margin-right: auto;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(9, 1fr);
+            grid-gap: 2.5px;
+
+            @media screen and (min-width: 1200px) {
+                grid-gap: 8px;
+            }
+
+            @media screen and (min-width:768px) and (max-width:1199px) {
+                grid-gap: 6px;
+            }
+        }
+    
+        &__grid-item:hover {
+            transform: rotate(1turn) scale(1.2);
+        }
+
+        &__grid-img:hover {
+            transform: rotate(1turn) scale(1.2);
+        }
+        
+        &__grid-item {
+            
+        
+            transition: transform 850ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        // modifiers
+           &__grid-item--1 {
+               grid-column-start: 1;
+               grid-column-end: 2;
+               grid-row-start: 4;
+               grid-row-end: 7;
+           }
+    
+           &__grid-item--2 {
+               grid-column-start: 2;
+               grid-column-end: 3;
+               grid-row-start: 3;
+               grid-row-end: 6;
+           }
+    
+           &__grid-item--3 {
+               grid-column-start: 2;
+               grid-column-end: 3;
+               grid-row-start: 6;
+               grid-row-end: 9;
+           }
+    
+           &__grid-item--4 {
+               grid-column-start: 3;
+               grid-column-end: 5;
+               grid-row-start: 1;
+               grid-row-end: 7;
+           }
+    
+           &__grid-item--5 {
+               grid-column-start: 3;
+               grid-column-end: 4;
+               grid-row-start: 7;
+               grid-row-end: 10;
+           }
+    
+           &__grid-item--6 {
+               grid-column-start: 5;
+               grid-column-end: 6;
+               grid-row-start: 3;
+               grid-row-end: 6;
+           }
+    
+           &__grid-item--7 {
+               grid-column-start: 5;
+               grid-column-end: 6;
+               grid-row-start: 6;
+               grid-row-end: 9;
+           }
+    
+           &__grid-item--8 {
+               grid-column-start: 6;
+               grid-column-end: 7;
+               grid-row-start: 2;
+               grid-row-end: 5;
+           }
+    
+           &__grid-item--9 {
+               grid-column-start: 6;
+               grid-column-end: 7;
+               grid-row-start: 5;
+               grid-row-end: 8;
+           }
+    
+           &__grid-item--10 {
+               grid-column-start: 7;
+               grid-column-end: 8;
+               grid-row-start: 4;
+               grid-row-end: 7;
+           }
+    
+        // dinamic getting pictures for all devices
+        // with different density 
+        @for $i from 1 through 10 {
+            &__grid-img--#{$i} {
+    
+                @media screen and (min-width:160px) {
+                    content: "";
+                    background-image: url('../images/gallery/mobile/home-pic#{$i}.png');
+                    background-size: cover;
+                    width: 44px;
+                    height: 44px;
+    
+                    @if #{$i}=="4" {
+                        width: 88px;
+                        height: 88px;
+                    }
+    
+                    @media screen and (min-width:1200px) and (min-device-pixel-ratio: 2),
+                    (min-resolution: 192dpi),
+                    (min-resolution: 2dppx) {
+                        background-image: url('../images/gallery/desktop/home-pic#{$i}@2x.png');
+                        background-size: cover;
+    
+                    }
+    
+                }
+    
+                @media screen and (min-width:768px) and (max-width:1199px) {
+                    content: "";
+                    background-image: url('../images/gallery/tablet/home-pic#{$i}.png');
+                    background-size: cover;
+                    width: 104px;
+                    height: 104px;
+    
+                    @if #{$i}=="4" {
+                        width: 214px;
+                        height: 214px;
+                    }
+    
+                    @media screen and (min-device-pixel-ratio: 2),
+                    (min-resolution: 192dpi),
+                    (min-resolution: 2dppx) {
+                        background-image: url('../images/gallery/tablet/home-pic#{$i}@2x.png');
+                        background-size: cover;
+    
+                    }
+                }
+    
+                @media screen and (min-width:1200px) {
+                    content: "";
+                    background-image: url('../images/gallery/desktop/home-pic#{$i}.png');
+                    background-size: cover;
+                    width: 138px;
+                    height: 138px;
+    
+                    @if #{$i}=="4" {
+                        width: 283px;
+                        height: 283px;
+                    }
+    
+                    @media screen and (min-width:1200px) and (min-device-pixel-ratio: 2),
+                    (min-resolution: 192dpi),
+                    (min-resolution: 2dppx) {
+                        background-image: url('../images/gallery/desktop/home-pic#{$i}@2x.png');
+                        background-size: cover;
+    
+                    }
+                }
+    
+             }
+        }
+}
